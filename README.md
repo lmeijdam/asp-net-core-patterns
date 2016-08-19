@@ -7,3 +7,5 @@ Here you can find two websites with useful information to get started;
 - http://www.asp.net/get-started
 
 **Please note**: This repository is still work in progress
+
+Lars Meijdam & Don Heuvelman
