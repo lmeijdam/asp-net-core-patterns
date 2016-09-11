@@ -17,8 +17,8 @@ Voor deze workshop heb je in ieder geval nodig;
 ### Wat leer ik?
 In de verschillende modules ga je met de volgende onderwerpen aan de slag:
 - Module 01: Let's Build(er)!; Het 'Builder' Design Pattern uitgelegd.
-- Module 02: 
-- Module 03: 
+- Module 02: Creating a Factory; Het 'Factory' Design Pattern.
+- Module 03: Choosing one or another; Het 'Strategy' Design Pattern.
 - Module 04: 
 - Module 05: 
 
