@@ -1,7 +1,3 @@
-# asp-net-core-patterns
-Repository for creating code samples about design patterns written in ASP.Net / .Net Core
-
-
 # Design Patterns Workshop (Dutch)
 
 In deze workshop worden enkele Design Patterns uitgewerkt in .NET Core. De workshop is verdeeld in verschillende modulen en kan naar eigen inzicht worden gemaakt. 
