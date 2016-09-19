@@ -12,11 +12,10 @@ Voor deze workshop heb je in ieder geval nodig;
 
 ### Wat leer ik?
 In de verschillende modules ga je met de volgende onderwerpen aan de slag:
-- Module 01: Let's Build(er)!; Het 'Builder' Design Pattern uitgelegd.
-- Module 02: Creating a Factory; Het 'Factory' Design Pattern.
-- Module 03: Choosing one or another; Het 'Strategy' Design Pattern.
-- Module 04: 
-- Module 05: 
+- Module 01: Let's Build(er)!; Het Builder Pattern uitgelegd.
+- Module 02: Creating a Factory; Factory Pattern.
+- Module 03: Choosing one or another; Strategy Pattern.
+- Module 04: Configure your own car: Het Decorator Pattern.
 
 ### Waar begin ik?
 
@@ -25,11 +24,8 @@ In de verschillende modules ga je met de volgende onderwerpen aan de slag:
 
 
 ### Kan ik na de workshop bijdragen?
-Dat kan zeker. Je kan deze repository eventueel 'forken' om er een eigen draai aan te geven of je kunt me een mailtje sturen met suggesties mocht je nog wat missen. Deze is te vinden in mijn profiel.
+Dat kan zeker. Je kan deze repository eventueel 'forken' om er een eigen draai aan te geven of je kunt me een mailtje sturen met suggesties mocht je nog wat missen. Deze is te vinden in het profiel van Lars.
 
 ### Succes!!
-
-
-**Please note**: Deze repository is een 'work in progress'.
 
 Lars Meijdam & Don Heuvelman
