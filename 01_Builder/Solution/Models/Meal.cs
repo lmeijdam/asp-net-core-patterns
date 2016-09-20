@@ -7,7 +7,6 @@ namespace Builder.Models
 {
     public class Meal
     {
-
         private List<IItem> items = new List<IItem>();
         
         public void AddItem(IItem itemToAdd)

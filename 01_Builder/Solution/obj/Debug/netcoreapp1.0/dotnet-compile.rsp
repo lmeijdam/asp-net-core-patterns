@@ -1,5 +1,5 @@
---temp-output:E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\obj\Debug\netcoreapp1.0\
---out:E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\bin\Debug\netcoreapp1.0\01 Builder.dll
+--temp-output:E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\obj\Debug\netcoreapp1.0\
+--out:E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\bin\Debug\netcoreapp1.0\Solution.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -9,7 +9,7 @@
 --optimize:False
 --debug-type:portable
 --emit-entry-point:True
---output-name:01 Builder
+--output-name:Solution
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
@@ -87,16 +87,16 @@
 --reference:C:\Users\Don\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Don\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Don\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\MealBuilder.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Program.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Interfaces\IItem.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Interfaces\IPacking.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Bottle.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Burger.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\ChickenBurger.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Coffee.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Cola.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Drink.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Hamburger.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Meal.cs
-E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01 Builder\Models\Wrapper.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\MealBuilder.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Program.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Interfaces\IItem.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Interfaces\IPacking.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Bottle.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Box.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Burger.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\ChickenBurger.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Coffee.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Cola.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Drink.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Hamburger.cs
+E:\Users\Don\Documents\Don\Projects\Git\asp-net-core-patterns\01_Builder\Solution\Models\Meal.cs

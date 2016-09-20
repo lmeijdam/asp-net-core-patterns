@@ -8,7 +8,7 @@ namespace Builder.Models
 
         public IPacking Packing
         {
-            get { return new Wrapper(); }
+            get { return new Box(); }
         }
 
         public abstract float Price { get; }

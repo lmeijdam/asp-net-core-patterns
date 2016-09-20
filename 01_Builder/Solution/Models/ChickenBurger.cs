@@ -2,20 +2,8 @@
 {
     public class ChickenBurger : Burger
     {
-        public override string Name
-        {
-            get
-            {
-                return "ChickenBurger";
-            }
-        }
+        public override string Name => "ChickenBurger";
 
-        public override float Price
-        {
-            get
-            {
-                return 2.50f;
-            }
-        }
+        public override float Price => 2.50f;
     }
 }
