@@ -45,8 +45,8 @@ public class EmailRecipient : Recipient
     }
 }
 ````
-
 Nu is eigenlijk het model wel klaar. We hebben 3 types van 'recipient' voor onze email app en kunnen beginnen aan de 'RecipientFactory'. Als eerste maken we een interface die de methoden definieerd.
+
 1. Maak een nieuwe folder aan genaamd 'Interfaces'.
 2. Maak een nieuw bestand genaamd IRecipientFactory en zet hierin maar 1 methode. Dit is de 'CreateRecipient' methode. Zorg ervoor dat de methode 'public' is en dat het 2 parameters van het type 'string' bevat (namelijk 'type' en 'address'). Let er op dat de 'CreateRecipient' methode een object van het type Recipient terug moet geven.
 3. Maak nu een nieuw bestand buiten de 'Interfaces' map genaamd 'RecipientFactory' en zorg dat deze afgeleid is van de interfact 'IRecipientFactory'. Je ziet dat VS een foutmelding geeft, omdat er geen implementatie zal zijn van de 'CreateRecipient' methode. Rechtermuisklik op de foutmelding zodat de methode automatisch verschijnt of schrijf de methode over vanuit de interface.
