@@ -1,4 +1,4 @@
-## 01 - Let's Build(er) Design Pattern
+# 01 - Let's Build(er) Design Pattern
 
 Het Builder Design Pattern is een 'Creation' pattern. Dat wil zeggen dat het een best practice is voor het aanmaken van objecten.
 Het Builder pattern is vooral geschikt voor het creeeren van gecompliceerde objecten.
