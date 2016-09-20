@@ -1,4 +1,4 @@
-# 02 - Decorator Design Pattern
+# Decorator Design Pattern
 
 Het Decorator Design Pattern is een 'Structural' pattern. Dat wil zeggen dat het een best practice is voor het creeeren van structuur binnen je applicatie. 
 Structuur door hergebruik van componenten.
