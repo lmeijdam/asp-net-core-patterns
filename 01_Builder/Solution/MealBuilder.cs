@@ -7,7 +7,7 @@ namespace Builder
         public Meal PrepareChickenMeal()
         {
             var meal = new Meal();
-            meal.AddItem(new Coffee());
+            meal.AddItem(new Water());
             meal.AddItem(new ChickenBurger());
 
             return meal;

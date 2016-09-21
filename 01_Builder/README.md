@@ -167,4 +167,237 @@ namespace Builder.Models
 }
 ``` 
 
-# HIER VERDER MET Drink implemtatie: Cola en Coffee. Vervolgens Meal.cs en tot slot de MealBuilder en Program.cs
+
+Bij ons diner hebben we ook wat drinken nodig. Gelukkig hebben we al een 'Bottle' om mee te beginnen.
+
+27. Maak in de 'Models' folder een nieuwe class aan en noem deze 'Drink'.
+28. `Drink` implementeert `IItem` en logischerwijs de bijbehorende properties. `Name` en `Price` definieer je `abstract` die zetten we pas in de concrete implementatie van de `Drink` class.
+
+```c
+        public abstract string Name { get; }
+        public abstract float Price { get; }   
+```
+
+29. De `Packing` property dient een `IPacking` implementatie te retourneren. Hiervoor hebben we eerder een `Bottle` class aangemaakt.
+```c
+        public IPacking Packing => new Bottle();
+```
+
+Dat was het voor de  `Drink` class. Door naar de concrete implementatie van de drankjes.
+
+
+30. Maak, wederom in de 'Models' folder, een nieuwe class aan genaamd `Cola`. 
+31. Je raadt het al, `Cola` erft over van `Drink` en dient dus ook de bijbehorende properties te 'overriden' en in te vullen.
+    * `Name` retourneert `"Cola"`
+    * `Price` retourneert `1.50f`
+
+```c
+namespace Builder.Models
+{
+    public class Cola : Drink
+    {
+        public override string Name => "Cola";
+        public override float Price => 1.50f;
+    }
+}
+```
+
+32. Hetzelfde trucje herhalen we voor `Water`. Een nieuwe class in de 'Models' folder.
+    * `Name` retourneert `"Water"`
+    * `Price` retourneert `1f`
+
+```c
+namespace Builder.Models
+{
+    public class Water : Drink
+    {
+        public override string Name => "Water";
+        public override float Price => 1f;
+    }
+}
+```
+
+Nu we al de losse items hebben kunnen we eindelijk een maaltijd in elkaar gaan zetten. Eerst moeten we alleen nog even definieren wat een maaltijd precies is.
+
+33. Maak in de, jep, 'Models' folder een nieuwe class aan genaamd 'Meal.cs'. 
+34. Een maaltijd bestaat uit meerdere componenten. Hiervoor schrijven we een `private` property genaamd 'items' welke bestaat uit een `List<IItem>'. Instantieer deze ook direct.
+
+```c
+using Builder.Interfaces;
+using System.Collections.Generic;
+
+namespace Builder.Models
+{
+    public class Meal
+    {
+        private List<IItem> items = new List<IItem>();        
+    }
+}
+```
+
+
+35. Aan deze lijst willen we natuurlijk items toevoegen dit doen we door een `public` functie 'AddItem' te maken die een enkele `IItem` als parameter ontvangt.
+36. De `IItem` parameter stoppen we vervolgens in de 'items' lijst.
+
+```c
+        public void AddItem(IItem itemToAdd)
+        {
+            items.Add(itemToAdd);
+        }
+```
+
+37. Van de maaltijd willen we ook de totaal prijs weten. Schrijf een functie  `GetCosts()` welke een `float` retourneert.
+38. In de `GetCosts` functie tel je de prijs van al de items in de lijst bij elkaar op en retourneer je het resultaat. Lang leve `Linq`, dit kunnen we mooi in een enkele regel code schrijven:
+
+```c
+        public float GetCosts()
+        {
+            return items.Sum(i => i.Price);
+        }
+``` 
+
+39. Om de 'Meal' class af te ronden schrijven we nog een laatste functie die voor elk `item` in de lijst laat zien wat de naam, de verpakking en de prijs is.
+
+De uiteindelijke `Meal` class zou er nu ongeveer zo uit moeten zien:
+
+```c
+using Builder.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Builder.Models
+{
+    public class Meal
+    {
+        private List<IItem> items = new List<IItem>();
+        
+        public void AddItem(IItem itemToAdd)
+        {
+            items.Add(itemToAdd);
+        }
+
+        public float GetCosts()
+        {
+            return items.Sum(i => i.Price);
+        }
+
+        public void ShowItems()
+        {
+            foreach (var item in items)
+            {
+                Console.WriteLine("Item: {0}, Packing: {1}, Price {2}", item.Name, item.Packing.Pack, item.Price.ToString("C"));
+            }
+        }
+    }
+}
+```
+
+### Dan nu tijd voor het echter werk.
+
+Al de models hebben we nu aangemaakt dus we kunnen gaan kijken naar het Builder Pattern.
+
+33. In de root van de applicatie maak je een nieuwe class genaamd 'MealBuilder'. Deze doet eigenlijk precies wat de naam zegt, hij bouwt de maaltijd op.
+34. In de `MealBuilder' class hebben we een tweetal functies: `PrepareChickenMeal()` en `PrepareBurgerMeal()`. Beiden retourneren, je hebt het wederom correct, een `Meal`.
+35. We beginnen in de `PrepareChickenMeal` functie. Hierin maken we een nieuwe instance van de de `Meal` class aan. Hiervoor dien je wel nog een `using` te leggen naar de 'Models' folder.
+36. Vervolgens voegen we aan de `meal` een drankje (`Water`) en een hapje (`ChickenBurger`) toe middels de `AddItem()` functie die we eerder hebben geschreven.
+37. Logischerwijs retourneren we de gehele maaltijd (`meal`) onderin de `PrepareChickenMeal` functie.
+38. Dezelfde stappen herhalen we voor de `PrepareBurgerMeal` functie. Deze bestaat uit een `Cola` en een `Hamburger`.
+
+De `MealBuilder` class is gereed als deze er ongeveer zo uit ziet:
+
+```c
+using Builder.Models;
+
+namespace Builder
+{
+    public class MealBuilder
+    {
+        public Meal PrepareChickenMeal()
+        {
+            var meal = new Meal();
+            meal.AddItem(new Water());
+            meal.AddItem(new ChickenBurger());
+
+            return meal;
+        }
+
+        public Meal PrepareBurgerMeal()
+        {
+            var meal = new Meal();
+            meal.AddItem(new Hamburger());
+            meal.AddItem(new Cola());
+
+            return meal;
+        }
+
+    }
+}
+```
+
+39. Alle openstaande bestanden mag je nu afsluiten voor het laatste deel van deze Builder Pattern workshop. We gaan voor deze laatste stap terug naar onze `Main` functie in de `Program` class.
+40. Bovenin de `Main` functie instantieren we de `MealBuilder` met de naam 'builder'.
+41. Onderin de `Main` functie schrijven we een regel die voorkomt dat de applicatie zometeen direct afsluit wanneer je hem runt. Dit doe je met `Console.ReadLine();` 
+42. Hét [antwoord](http://hitchhikers.wikia.com/wiki/42) op alles! 
+43. Tussen de `ReadLine()` functie en de `builder` property maken een hamburger maaltijd aan:
+
+```c
+    var burgerMeal = builder.PrepareBurgerMeal();
+```
+
+43. Uiteraard zijn we benieuwd wat er dan zoal in deze `burgerMeal` zit en wat de totaalprijs is:
+
+```c
+    Console.WriteLine("BurgerMeal: ");
+    burgerMeal.ShowItems();
+    Console.WriteLine("Costs: {0}", burgerMeal.GetCosts().ToString("C"));
+```
+
+44. Lekker bezig. 
+45. De laatste maaltijd spreekt voor zich. Tijd voor de `ChickenMeal` implementatie.
+```c 
+    var chickenMeal = builder.PrepareChickenMeal();
+    Console.WriteLine("ChickenMeal: ");
+    chickenMeal.ShowItems();
+    Console.WriteLine("Costs: {0}", chickenMeal.GetCosts().ToString("C"));
+
+```
+
+Het uiteindelijke Program bestand is niets meer dan:
+
+```c
+using System;
+
+namespace Builder
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = new MealBuilder();
+
+            var burgerMeal = builder.PrepareBurgerMeal();
+            Console.WriteLine("BurgerMeal: ");
+            burgerMeal.ShowItems();
+            Console.WriteLine("Costs: {0}", burgerMeal.GetCosts().ToString("C"));
+
+            var chickenMeal = builder.PrepareChickenMeal();
+            Console.WriteLine("ChickenMeal: ");
+            chickenMeal.ShowItems();
+            Console.WriteLine("Costs: {0}", chickenMeal.GetCosts().ToString("C"));
+            
+            Console.ReadLine();
+        }
+    }
+}
+```
+
+46. Start nu de applicatie door op 'F5' te drukken in Visual Studio of door onderstaande functie te typen in Command Prompt
+
+```c
+    dotnet run
+```
+
+Wat we zien is dat een Builder eigenlijk niet meer is dan een soort van functie die het genereren van sub-items voor zijn rekening neemt.
+Je doet een enkele call naar de builder implementatie, in dit geval `PrepareBurgerMeal` of `PrepareChickenMeal` en de builder zorgt er voor dat alle onderdelen bij elkaar in het pakketje worden gedaan.
+Eigenlijk net als de cassiere bij de McDonalds!

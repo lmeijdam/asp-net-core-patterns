@@ -1,9 +1,8 @@
 ﻿namespace Builder.Models
 {
-    public class Coffee : Drink
+    public class Water : Drink
     {
-        public override string Name => "Coffee";
-
+        public override string Name => "Water";
         public override float Price => 1f;
     }
 }
