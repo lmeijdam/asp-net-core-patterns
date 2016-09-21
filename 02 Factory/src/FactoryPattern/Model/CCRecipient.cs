@@ -4,9 +4,8 @@
     {
         public CCRecipient(string address)
         {
-            Address = address;
+            base.address = address;
         }
-
-        public override string Address { get; }
+        
     }
 }

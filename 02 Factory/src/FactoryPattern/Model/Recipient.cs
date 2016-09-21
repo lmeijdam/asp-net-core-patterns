@@ -7,6 +7,7 @@ namespace FactoryPattern.Model
 {
     public abstract class Recipient
     {
-        public abstract string Address { get; }
+        protected string address = "undefined";
+        public string Address => address;
     }
 }
