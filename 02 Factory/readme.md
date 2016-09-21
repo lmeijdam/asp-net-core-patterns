@@ -91,7 +91,8 @@ Console.WriteLine($"Created a recipient of type {bccRecipient.GetType()} with ad
 > GetType() is een standaard methode van .Net en geeft het 'classtype' terug.
 
 3. Druk nu op F5 om de applicatie te starten. Je ziet in de Console dat er nu 3 soorten Recipient(s) zijn gemaakt van de 3 verschillende types. 
-EXTRA: Om toch wat minder afhankelijk te zijn van het parameter 'type' als 'string' in de CreateRecipient methode. Is het aan te raden een 'Enum' te gebruiken. Dit is dan ook bij deze demo gedaan. 
+
+**EXTRA**: Om toch wat minder afhankelijk te zijn van het parameter 'type' als 'string' in de CreateRecipient methode. Is het aan te raden een 'Enum' te gebruiken. Dit is dan ook bij deze demo gedaan. 
 1. Maak een nieuwe class / enum in de Models map met de naam 'RecipientType' en vul deze met de 3 verschillende types;
 ````csharp
 public enum RecipientType
