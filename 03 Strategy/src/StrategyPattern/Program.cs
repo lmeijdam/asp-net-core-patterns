@@ -21,6 +21,10 @@ namespace StrategyPattern
             shoppingCart.MakePayment(new PaypalStrategy("test@test.net", "test123"));
             shoppingCart.MakePayment(new WalletStrategy("TestUser"));
 
+            shoppingCart.ClearCart();
+            shoppingCart.AddProduct(new Game(50));
+            shoppingCart.MakePayment(new WalletStrategy("TestUser"));
+
             Console.ReadKey();
 
         }

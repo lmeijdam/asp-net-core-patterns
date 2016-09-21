@@ -8,25 +8,25 @@ namespace StrategyPattern.Models
 {
     public class PaypalStrategy : IPaymentStrategy
     {
-        private string _email;
-        private string _password;
+        private string email;
+        private string password;
 
         public PaypalStrategy(string email, string password)
         {
-            _email = email;
-            _password = password;
+            this.email = email;
+            this.password = password;
         }
 
         public void Pay(int amount)
         {
-            var authorized = LogInUser(_email, _password);
+            var authorized = LogInUser(email, password);
             if (authorized)
             {
-                Console.WriteLine($"{amount} euro's paid by {_email} with Paypal");
+                Console.WriteLine($"{amount} euro's paid by {email} with Paypal");
             }
             else
             {
-                Console.WriteLine($"{_email} is not a valid user. Please log in.");
+                Console.WriteLine($"{email} is not a valid user. Please log in.");
             }
         }
 

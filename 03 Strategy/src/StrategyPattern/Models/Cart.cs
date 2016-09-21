@@ -20,6 +20,11 @@ namespace StrategyPattern.Models
             _items.Add(product);
         }
 
+        public void ClearCart()
+        {
+            _items.Clear();
+        }
+
         public void MakePayment(IPaymentStrategy paymentStrategy)
         {
             paymentStrategy.Pay(GetTotalPrice());

@@ -8,14 +8,19 @@ namespace StrategyPattern
 {
     public class WalletStrategy : IPaymentStrategy
     {
-        private string _username;
+        private string username;
+        private int budget;
         public WalletStrategy(string username)
         {
-            _username = username;
+            this.username = username;
+            budget = 50;
         }
         public void Pay(int amount)
         {
-            Console.WriteLine($"{amount} euro's paid by {_username} using In-Game Wallet.");
+            if (budget < amount)
+                Console.WriteLine($"{amount} can't be paid. Budget is only {budget}.");
+            else
+                Console.WriteLine($"{amount} euro's paid by {username} using In-Game Wallet.");
         }
     }
 }
