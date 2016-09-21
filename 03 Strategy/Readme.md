@@ -127,8 +127,6 @@ shoppingCart.AddProduct(new Poster(10));
 4. schrijf vervolgens 2 regels waarbij je de 'MakePayment' methode aanroept met een nieuwe instantie van de PaypalStrategy en WalletStrategy. 
 5. Druk vervolgens op F5 en je ziet 2 lijnen verschijnen in de Console. namelijk 'Paid using Paypal' (of een eigen gekozen zin) en 'Paid using In-Game Wallet.'.
 
-En zo simpel is het. Op deze manier kun je eenvoudig een 'Strategy' Pattern implementeren waarbij elke classe een eigen implementatie heeft van de 'Pay' methode. 
-
 **EXTRA**: Om toch wat meer uitdaging en logica toe te voegen kun je enkele dingen toevoegen. Dit is in de demo al gedaan. Meer om toch een real-life situatie na te bootsen. Dit zijn;
 
 - Voeg een gebruikersnaam en wachtwoord toe aan de PayPalStrategy. Je kunt nu een 'test' Login methode maken om te controleren of de gebruiker is ingelogd en mag betalen.
@@ -143,5 +141,8 @@ return total;
 
 - Zorg ervoor dat de 'Pay' methode nu een 'int' met een totaalprijs kan ontvangen/gebruiken. 
 - Als laatste zou je de 'MakePayment' methode iets meer logica kunnen laten bevatten dat het eerst probeert te betalen met de Wallet, maar met ontoereikend budget de PaypalStrategy gebruikt.
+
+
+En zo simpel is het. Op deze manier kun je eenvoudig een 'Strategy' Pattern implementeren waarbij elke classe een eigen implementatie heeft van de 'Pay' methode. 
 
 
