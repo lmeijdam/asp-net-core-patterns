@@ -104,10 +104,10 @@ namespace Builder.Models
 
 Nu we een `Box` en een `Bottle` hebben kunnen we ons voedsel ergens in bewaren. Tijd voor het maken van de voedsel klasses.
 
-16. We beginnen met het maken van een nieuwe `abstract` class met de naam Burger.cs, nog steeds in de 'Models' folder.
-17. Burger implementeert de `IItem` interface. 
-18. De `Name` en `Price` properties implementeren we hier nog niet, dat doen we in de burger implementaties, dus zetten we ze door als `abstract` properties met een `public get`.
-19. De `Packing` property laten we een `new Box();` retourneren in de public `get`.
+16: We beginnen met het maken van een nieuwe `abstract` class met de naam Burger.cs, nog steeds in de 'Models' folder.
+17: Burger implementeert de `IItem` interface. 
+18: De `Name` en `Price` properties implementeren we hier nog niet, dat doen we in de burger implementaties, dus zetten we ze door als `abstract` properties met een `public get`.
+19: De `Packing` property laten we een `new Box();` retourneren in de public `get`.
 
 De Burger.cs code zou er ongeveer zou uit moeten zien:
 ```c
@@ -132,15 +132,16 @@ namespace Builder.Models
 Het bestand 'Burger.cs' is nu gereed en mag je naar wens sluiten.
 
 We maken nu een tweetal typen 'Burgers' aan. Namelijk een Hamburger en een ChickenBurger.
-20. Nog steeds in de 'Models' folder: Maak een nieuwe class aan met de naam 'Hamburger'
 
-21. `Hamburger` implementeert (logischerwijs) de `Burger` class die we eerder hebben aangemaakt.
+20: Nog steeds in de 'Models' folder: Maak een nieuwe class aan met de naam 'Hamburger'
 
-22. Implementeer de 'overgebleven' properties `Name` en `Price`. (CTRL + . )
+21: `Hamburger` implementeert (logischerwijs) de `Burger` class die we eerder hebben aangemaakt.
 
-23. Zorg er voor dat `Name` de waarde "Hamburger" retourneert in de getter.
+22: Implementeer de 'overgebleven' properties `Name` en `Price`. (CTRL + . )
 
-24. Voor `Price` mag je `2.80f` retourneren (nee de `f` staat niet voor de ouderwetsche Neerlandische Frank maar voor `float`)
+23: Zorg er voor dat `Name` de waarde "Hamburger" retourneert in de getter.
+
+24: Voor `Price` mag je `2.80f` retourneren (nee de `f` staat niet voor de ouderwetsche Neerlandische Frank maar voor `float`)
 
 Een voorbeeld van de `Hamburger` class met de sexy nieuwe alternatieve manier van de 'get return' implementaties.
 ```c
