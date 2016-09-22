@@ -87,7 +87,7 @@ Nu we de start van ons model klaar hebben kunnen we beginnen aan de eerste 'Stra
 
 11: Zorg er voor dat deze een methode van het type 'void' heeft genaamd 'Pay'.
 
-12: Maak nu een classe met de naam 'WalletStrategy'. Zorg ervoor dat deze de IPaymentStrategy implementeerd.
+12: Maak nu een classe met de naam 'WalletStrategy' in de root map. Zorg ervoor dat deze de IPaymentStrategy implementeerd.
 
 13: Laat 'Pay' methode een simpele string retourneren naar de Console met Console.WriteLine().
 
@@ -105,7 +105,7 @@ public class WalletStrategy : IPaymentStrategy
 {
     public WalletStrategy() { }
     
-    public void Pay(int amount)
+    public void Pay()
     {
         Console.WriteLine("Paid using In-Game Wallet.");
     }
@@ -119,7 +119,7 @@ Nu we onze 2 'basic' 'Strategies' hebben. Kunnen we het in werking zien. Als eer
 ````csharp
 public void MakePayment(IPaymentStrategy paymentStrategy)
 {
-    paymentStrategy.Pay(GetTotalPrice());
+    paymentStrategy.Pay();
 }
 ````
 
