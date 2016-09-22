@@ -19,7 +19,7 @@ In de verschillende modules ga je met de volgende onderwerpen aan de slag:
 
 ### Waar begin ik?
 
-1.	Ga naar: https://www.microsoft.com/net/core#windows en download de .net Core library ([of download direct](https://go.microsoft.com/fwlink/?LinkID=809122]))
+1.	Ga naar: https://www.microsoft.com/net/core#windows en download de .net Core library ([of download direct](https://go.microsoft.com/fwlink/?LinkID=827524]))
 2.	Open de workshop folder naar keuze en lees daar aandachtig de 'readme' om zo de workshop te kunnen maken.
 
 
