@@ -13,9 +13,11 @@ Om te beginnen maken we een nieuw .Net Core project, we gaan weer aan de slag me
 
 **Let op** - Als je geen VS2015 wilt gebruiken kun je de eerste 4 stappen volgen in '01'.
 
-1. Start VS2015 en ga naar File > New Project > Visual C# en kies hier vervolgens .NET Core > Console Application .NET Core.
-2. Geef het project een naam en selecteer een eigen gekozen locatie om het project op te slaan.
-3. Je hebt nu een lege console applicatie. Je kunt testen of dit werkt door in 'Program.cs' de volgende code te schrijven in de 'Main' methode;
+1: Start VS2015 en ga naar File > New Project > Visual C# en kies hier vervolgens .NET Core > Console Application .NET Core.
+
+2: Geef het project een naam en selecteer een eigen gekozen locatie om het project op te slaan.
+
+3: Je hebt nu een lege console applicatie. Je kunt testen of dit werkt door in 'Program.cs' de volgende code te schrijven in de 'Main' methode;
 ````Csharp
 public static void Main(string[] args)
 {
@@ -23,13 +25,13 @@ public static void Main(string[] args)
 }
 ````
 
-4. Druk nu op F5 om de applicatie te starten en je ziet een Console venster draaien. Door een willekeurige toets wordt deze weer afgesloten.
+4: Druk nu op F5 om de applicatie te starten en je ziet een Console venster draaien. Door een willekeurige toets wordt deze weer afgesloten.
 
 **Note** bovenstaand is inderdaad gekopieerd uit '02'. 
 
 Oke nu we weer een standaard .Net applicatie hebben staan kunnen we beginnen met het maken van de classes. Om alvast een start te maken kun je de map 'Interfaces' en 'Models' alvast maken.
 
-1. Maak in de map 'Models' een class met de naam 'Product'. Maak deze abstract en laat deze een 'Price' van het type 'int' retourneren. Zorg ervoor dat het 'Price' veld (of property) protected is en de methode om hem te benaderen publiek.
+5: Maak in de map 'Models' een class met de naam 'Product'. Maak deze abstract en laat deze een 'Price' van het type 'int' retourneren. Zorg ervoor dat het 'Price' veld (of property) protected is en de methode om hem te benaderen publiek.
 ````csharp
 public abstract class Product
 {
@@ -41,7 +43,7 @@ public abstract class Product
     }
 }
 ````
-2. Maak vervolgens 3 nieuwe 'Product' classes. Dit zijn 'Game', 'Poster' en 'Sticker'. Zorg ervoor dat deze zijn afgeleid van 'Product' en dat de prijs wordt gezet in de constructor. Hier een klein voorbeeld van de 'Game' class.
+6: Maak vervolgens 3 nieuwe 'Product' classes. Dit zijn 'Game', 'Poster' en 'Sticker'. Zorg ervoor dat deze zijn afgeleid van 'Product' en dat de prijs wordt gezet in de constructor. Hier een klein voorbeeld van de 'Game' class.
 ````csharp
 public class Game : Product
 {
@@ -51,9 +53,9 @@ public class Game : Product
     }
 }
 ````
-3. Nu we de producten hebben kun je aan de slag met een 'ShoppingCart'. Maak een nieuwe class genaamd 'Cart' en laat deze een lijst (List) bewaren van 'Product' objecten. Instantieer de lijst in de constructor van 'Cart'.
-4. Maak vervolgens een methode 'AddProduct' met als parameter een object van het type 'Product'. Laat deze methode het object toevoegen aan de lijst.
-5. Maak als laatste een methode om de lijst te legen, genaamd 'ClearCart'. Deze methode moet de lijst legen. Hier volgt de implementatie van de Cart class.
+7: Nu we de producten hebben kun je aan de slag met een 'ShoppingCart'. Maak een nieuwe class genaamd 'Cart' en laat deze een lijst (List) bewaren van 'Product' objecten. Instantieer de lijst in de constructor van 'Cart'.
+8: Maak vervolgens een methode 'AddProduct' met als parameter een object van het type 'Product'. Laat deze methode het object toevoegen aan de lijst.
+9: Maak als laatste een methode om de lijst te legen, genaamd 'ClearCart'. Deze methode moet de lijst legen. Hier volgt de implementatie van de Cart class.
 
 ````csharp
  public class Cart
@@ -79,12 +81,12 @@ public class Game : Product
 
 Nu we de start van ons model klaar hebben kunnen we beginnen aan de eerste 'Strategy'. We beginnen eerst met het maken van een interface en vervolgens met de 'Wallet' strategy.
 
-1. Maak een interface in de 'Interfaces' map met de naam 'IPaymentStrategy'
-2. Zorg er voor dat deze een methode van het type 'void' heeft genaamd 'Pay'.
-3. Maak nu een classe met de naam 'WalletStrategy'. Zorg ervoor dat deze de IPaymentStrategy implementeerd.
-4. Laat 'Pay' methode een simpele string retourneren naar de Console met Console.WriteLine().
-5. Maak vervolgens een PaypalStrategy classe en laat deze ook de IPaymentStrategy gebruiken. 
-6. Zorg er hier ook voor dat de Pay methode een lijn naar de Console schrijft. Als voorbeeld zie je hieronder de IPaymentStrategy en WalletStrategy.
+10: Maak een interface in de 'Interfaces' map met de naam 'IPaymentStrategy'
+11: Zorg er voor dat deze een methode van het type 'void' heeft genaamd 'Pay'.
+12: Maak nu een classe met de naam 'WalletStrategy'. Zorg ervoor dat deze de IPaymentStrategy implementeerd.
+13: Laat 'Pay' methode een simpele string retourneren naar de Console met Console.WriteLine().
+14: Maak vervolgens een PaypalStrategy classe en laat deze ook de IPaymentStrategy gebruiken. 
+15: Zorg er hier ook voor dat de Pay methode een lijn naar de Console schrijft. Als voorbeeld zie je hieronder de IPaymentStrategy en WalletStrategy.
 
 ````csharp
 public interface IPaymentStrategy
@@ -104,7 +106,7 @@ public class WalletStrategy : IPaymentStrategy
 ````
 
 Nu we onze 2 'basic' 'Strategies' hebben. Kunnen we het in werking zien. Als eerste is het belangrijk dat de Cart een afreken methode krijgt en daarbij gebruik maakt van 1 van de strategies.
-1. Open 'Cart.cs' en maak een nieuwe methode met de naam 'MakePayment' en geef deze een parameter van het type IPaymentStrategy. Hierdoor kan zowel de WalletStrategy als PaypalStrategy worden gebruikt.
+16. Open 'Cart.cs' en maak een nieuwe methode met de naam 'MakePayment' en geef deze een parameter van het type IPaymentStrategy. Hierdoor kan zowel de WalletStrategy als PaypalStrategy worden gebruikt.
 
 ````csharp
 public void MakePayment(IPaymentStrategy paymentStrategy)
@@ -113,8 +115,8 @@ public void MakePayment(IPaymentStrategy paymentStrategy)
 }
 ````
 
-2. Ga vervolgens naar 'Program.cs' en maak een instantie van 'Cart'. 
-3. Voeg 3 of 4 producten toe aan de ShoppingCart.
+17. Ga vervolgens naar 'Program.cs' en maak een instantie van 'Cart'. 
+18. Voeg 3 of 4 producten toe aan de ShoppingCart.
 
 ````csharp
 Cart shoppingCart = new Cart();
@@ -124,8 +126,8 @@ shoppingCart.AddProduct(new Sticker(5));
 shoppingCart.AddProduct(new Poster(10));    
 ````
 
-4. schrijf vervolgens 2 regels waarbij je de 'MakePayment' methode aanroept met een nieuwe instantie van de PaypalStrategy en WalletStrategy. 
-5. Druk vervolgens op F5 en je ziet 2 lijnen verschijnen in de Console. namelijk 'Paid using Paypal' (of een eigen gekozen zin) en 'Paid using In-Game Wallet.'.
+19. schrijf vervolgens 2 regels waarbij je de 'MakePayment' methode aanroept met een nieuwe instantie van de PaypalStrategy en WalletStrategy. 
+20. Druk vervolgens op F5 en je ziet 2 lijnen verschijnen in de Console. namelijk 'Paid using Paypal' (of een eigen gekozen zin) en 'Paid using In-Game Wallet.'.
 
 **EXTRA**: Om toch wat meer uitdaging en logica toe te voegen kun je enkele dingen toevoegen. Dit is in de demo al gedaan. Meer om toch een real-life situatie na te bootsen. Dit zijn;
 
