@@ -54,7 +54,9 @@ public class Game : Product
 }
 ````
 7: Nu we de producten hebben kun je aan de slag met een 'ShoppingCart'. Maak een nieuwe class genaamd 'Cart' en laat deze een lijst (List) bewaren van 'Product' objecten. Instantieer de lijst in de constructor van 'Cart'.
+
 8: Maak vervolgens een methode 'AddProduct' met als parameter een object van het type 'Product'. Laat deze methode het object toevoegen aan de lijst.
+
 9: Maak als laatste een methode om de lijst te legen, genaamd 'ClearCart'. Deze methode moet de lijst legen. Hier volgt de implementatie van de Cart class.
 
 ````csharp
@@ -82,10 +84,15 @@ public class Game : Product
 Nu we de start van ons model klaar hebben kunnen we beginnen aan de eerste 'Strategy'. We beginnen eerst met het maken van een interface en vervolgens met de 'Wallet' strategy.
 
 10: Maak een interface in de 'Interfaces' map met de naam 'IPaymentStrategy'
+
 11: Zorg er voor dat deze een methode van het type 'void' heeft genaamd 'Pay'.
+
 12: Maak nu een classe met de naam 'WalletStrategy'. Zorg ervoor dat deze de IPaymentStrategy implementeerd.
+
 13: Laat 'Pay' methode een simpele string retourneren naar de Console met Console.WriteLine().
+
 14: Maak vervolgens een PaypalStrategy classe en laat deze ook de IPaymentStrategy gebruiken. 
+
 15: Zorg er hier ook voor dat de Pay methode een lijn naar de Console schrijft. Als voorbeeld zie je hieronder de IPaymentStrategy en WalletStrategy.
 
 ````csharp
@@ -106,6 +113,7 @@ public class WalletStrategy : IPaymentStrategy
 ````
 
 Nu we onze 2 'basic' 'Strategies' hebben. Kunnen we het in werking zien. Als eerste is het belangrijk dat de Cart een afreken methode krijgt en daarbij gebruik maakt van 1 van de strategies.
+
 16. Open 'Cart.cs' en maak een nieuwe methode met de naam 'MakePayment' en geef deze een parameter van het type IPaymentStrategy. Hierdoor kan zowel de WalletStrategy als PaypalStrategy worden gebruikt.
 
 ````csharp
@@ -115,8 +123,9 @@ public void MakePayment(IPaymentStrategy paymentStrategy)
 }
 ````
 
-17. Ga vervolgens naar 'Program.cs' en maak een instantie van 'Cart'. 
-18. Voeg 3 of 4 producten toe aan de ShoppingCart.
+17: Ga vervolgens naar 'Program.cs' en maak een instantie van 'Cart'.
+
+18: Voeg 3 of 4 producten toe aan de ShoppingCart.
 
 ````csharp
 Cart shoppingCart = new Cart();
@@ -126,8 +135,9 @@ shoppingCart.AddProduct(new Sticker(5));
 shoppingCart.AddProduct(new Poster(10));    
 ````
 
-19. schrijf vervolgens 2 regels waarbij je de 'MakePayment' methode aanroept met een nieuwe instantie van de PaypalStrategy en WalletStrategy. 
-20. Druk vervolgens op F5 en je ziet 2 lijnen verschijnen in de Console. namelijk 'Paid using Paypal' (of een eigen gekozen zin) en 'Paid using In-Game Wallet.'.
+19: schrijf vervolgens 2 regels waarbij je de 'MakePayment' methode aanroept met een nieuwe instantie van de PaypalStrategy en WalletStrategy. 
+
+20: Druk vervolgens op F5 en je ziet 2 lijnen verschijnen in de Console. namelijk 'Paid using Paypal' (of een eigen gekozen zin) en 'Paid using In-Game Wallet.'.
 
 **EXTRA**: Om toch wat meer uitdaging en logica toe te voegen kun je enkele dingen toevoegen. Dit is in de demo al gedaan. Meer om toch een real-life situatie na te bootsen. Dit zijn;
 
