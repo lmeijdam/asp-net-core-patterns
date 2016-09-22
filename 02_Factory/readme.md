@@ -1,4 +1,4 @@
-# Setting up a Factory
+# Creating a Factory
 
 De factory is net als het Builder pattern een 'creational' pattern. Ideaal gezien is de factory eigenlijk een 'methode' die een ontwikkelaar in staat stelt objecten te creeeren. Om wat voorbeeld te geven; 
 - Bij een spel een vijand of speler aanmaken op basis van verschillende factoren.
