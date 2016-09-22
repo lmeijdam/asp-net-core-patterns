@@ -6,17 +6,17 @@ Structuur door hergebruik van componenten.
 In deze workshop maken we een **car configurator** (hoe kon het ook anders, sorry :P ) met behulp van het 'Decorator Pattern'.
 
 
-1. Maak op een locatie naar keuze een folder aan en noem deze 'Decorator'. Vanuit deze folder beginnen we het 'project'.
+*1:* Maak op een locatie naar keuze een folder aan en noem deze 'Decorator'. Vanuit deze folder beginnen we het 'project'.
 nb: De folder mag geen spaties bevatten, dit vanwege een fout/bug in de .NET Core.  
 
-2. Open Command Prompt (Windows Search -> 'cmd' -> enter) en navigeer naar de betreffende folder.
+*2:* Open Command Prompt (Windows Search -> 'cmd' -> enter) en navigeer naar de betreffende folder.
 
-3. Type nu onderstaande code en druk vervolgens op enter om een ASP.NET Core website aan te maken. 
+*3:* Type nu onderstaande code en druk vervolgens op enter om een ASP.NET Core website aan te maken. 
   ```
   dotnet new -t web
   ```
 
-4. Wanneer je nu 'dotnet run' intypt zul je zien dat je een foutmelding krijgt. Het is daarom van belang om eerst de packages, zoals gespecifieerd in je project.json bestand te 'restoren'. 
+*4:* Wanneer je nu 'dotnet run' intypt zul je zien dat je een foutmelding krijgt. Het is daarom van belang om eerst de packages, zoals gespecifieerd in je project.json bestand te 'restoren'. 
   Dit doe je met de volgende regel:
   ```
   dotnet restore
@@ -25,7 +25,7 @@ nb: De folder mag geen spaties bevatten, dit vanwege een fout/bug in de .NET Cor
 *nb: De ASP.NET Core applicatie heeft wat overhead inzake account registratie etc. Dit zullen we voor het gemak negeren en is niet relevant voor deze workshop.*
 
 
-5. Run onderstaand commando. Het project wordt gecompileerd, een localhost 'server' gestart en de website zal gaan draaien op je localhost.
+*5:* Run onderstaand commando. Het project wordt gecompileerd, een localhost 'server' gestart en de website zal gaan draaien op je localhost.
 ```
 dotnet run
 ```
@@ -38,11 +38,15 @@ Vervolgens kon ik de applicatie starten via 'Run'(F5) in Visual Studio. Dat werk
 
 Het lijkt er dus op dat het commando 'dotnet run' niet altijd een webservice instance kan starten of iets dergelijks.
 
-6. Maak in de folder Models het bestand 'Vehicle.cs' aan (New File -> Class -> 'Vehicle.cs')
-7. Vehicle is de abstracte Component class binnen het Decorator Pattern. Dit wil zeggen dat alle andere klassen overerven van deze.
-8. Schrijf een *protected* property van het type string met de naam 'description'. De default waarde van de string is 'Undefined'.
-9. Maak een *public* function 'GetDescription()' welke niets anders doet dan de eerder gemaakte 'description' string retourneren.
-10. Afsluitend voor de Vehicle class maken we een *abstract* 'Price()' definitie aan. Deze retourneert de prijs als geheel getal (int) maar dient geschreven te worden in overervende classes.
+*6:* Maak in de folder Models het bestand 'Vehicle.cs' aan (New File -> Class -> 'Vehicle.cs')
+
+*7:* Vehicle is de abstracte Component class binnen het Decorator Pattern. Dit wil zeggen dat alle andere klassen overerven van deze.
+
+*8:* Schrijf een *protected* property van het type string met de naam 'description'. De default waarde van de string is 'Undefined'.
+
+*9:* Maak een *public* function 'GetDescription()' welke niets anders doet dan de eerder gemaakte 'description' string retourneren.
+
+*10:* Afsluitend voor de Vehicle class maken we een *abstract* 'Price()' definitie aan. Deze retourneert de prijs als geheel getal (int) maar dient geschreven te worden in overervende classes.
 
 Je code in de Vehicle.cs class zou er ongeveer zo uit moeten zien:
 ```C
@@ -59,16 +63,16 @@ Je code in de Vehicle.cs class zou er ongeveer zo uit moeten zien:
     }
 ```
 
-11. Nu schrijven we de concrete implementatie van de 'Vehicle' class. Dit doen we voor het gemak in hetzelfde 'Vehicle.cs' bestand. (ja dit is niet chique maar we maken hier geen real-world applicatie. Er komt nog veel meer 'nastyniss' aan.) 
+*11:* Nu schrijven we de concrete implementatie van de 'Vehicle' class. Dit doen we voor het gemak in hetzelfde 'Vehicle.cs' bestand. (ja dit is niet chique maar we maken hier geen real-world applicatie. Er komt nog veel meer 'nastyniss' aan.) 
 
     Maak de *public* class 'AlfaRomeo' aan welke overerft van de 'Vehicle' class.
 
-12. In de constructor van 'AlfaRomeo' definieer je de waarde van de 'description' met de tekst: 'Alfa Romeo Giulia'.
+*12:* In de constructor van 'AlfaRomeo' definieer je de waarde van de 'description' met de tekst: 'Alfa Romeo Giulia'.
 
 
 (PRO-TIP: in Visual Studio type je in een class de tekst *'ctor'* gevolgd door een tab om automagisch een constructor aan te maken) 
 
-13. Omdat we overerven van de 'Vehicle' class zijn we verplicht om de Price() funtie te definiëren. 'Override' de abstract Price() functie en laat deze de standaard prijs van '40000' retourneren.
+*13:* Omdat we overerven van de 'Vehicle' class zijn we verplicht om de Price() funtie te definiëren. 'Override' de abstract Price() functie en laat deze de standaard prijs van '40000' retourneren.
 
 De 'AlfaRomeo' class code zou er als volgt moeten uit zien:
 ```C
@@ -90,11 +94,13 @@ De 'AlfaRomeo' class code zou er als volgt moeten uit zien:
 Tijd voor de Decorator. We willen namelijk niet een kale auto kopen.. We willen opties!!
 De Decorator is een abstracte klasse welke de Component aanvullende opties kan geven.
 
-14. Maak in de 'Models' folder een nieuw bestand aan en noem deze 'OptionDecorator.cs'
-15. In het bestand maken we een abstracte definitie van de OptionDecorator class aan.    
+*14:* Maak in de 'Models' folder een nieuw bestand aan en noem deze 'OptionDecorator.cs'
+
+*15:* In het bestand maken we een abstracte definitie van de OptionDecorator class aan.    
+
 De Decorator erft over van het Component dat men wenst te 'decoraten'. In dit geval erft de 'OptionDecorator' dus over van 'Vehicle'. Echter omdat het een abstracte class betreft hoeven we de functies niet te implementeren. Dat doen we pas in de concrete uitwerking van de Decorator class.
 
-16. In de OptionDecorator class creeeren we een *protected* string optionName en een public string OptionName welke de protected variant retourneert (get);
+*16:* In de OptionDecorator class creeeren we een *protected* string optionName en een public string OptionName welke de protected variant retourneert (get);
 
 De 'OptionDecorator' class code zou er als volgt moeten uit zien:
 ```C
@@ -108,8 +114,9 @@ De 'OptionDecorator' class code zou er als volgt moeten uit zien:
 
 De opties zijn losse classes welke de OptionDecorator implementeren.
 
-17. Eveneens in de Models folder van het project maak je een nieuw bestand genaamd 'LeatherSeats.cs'.
-18. In dit bestand maken we de 'LeatherSeats' class aan welke de OptionDecorator implemteert.
+*17:* Eveneens in de Models folder van het project maak je een nieuw bestand genaamd 'LeatherSeats.cs'.
+
+*18:* In dit bestand maken we de 'LeatherSeats' class aan welke de OptionDecorator implemteert.
 
  ```C
 namespace Decorator.Models
@@ -120,7 +127,7 @@ namespace Decorator.Models
 }
 ```
 
-19. De constructor (ctor + tab) ontvangt een 'Vehicle' object met de naam 'vehicle'. Deze schrijven we direct weg naar het locale '_vehicle' object. (dez emoet je dus zelf even schrijven)
+*19:* De constructor (ctor + tab) ontvangt een 'Vehicle' object met de naam 'vehicle'. Deze schrijven we direct weg naar het locale '_vehicle' object. (dez emoet je dus zelf even schrijven)
 
  ```C
     public class LeatherSeats : OptionDecorator
@@ -134,8 +141,9 @@ namespace Decorator.Models
     }
 ```
 
-20. In dezelfde constructor schrijven we de optionName weg als 'Leather Seats'
-21. De 'description' **decoraten** we door op het lokale Vehicle object de functie GetDescription() aan te roepen en deze aan te vullen met een komma plus spatie (anders ziet het er zo slordig uit) en de 'optionName' van het object zelf.
+*20:* In dezelfde constructor schrijven we de optionName weg als 'Leather Seats'
+
+*21:* De 'description' **decoraten** we door op het lokale Vehicle object de functie GetDescription() aan te roepen en deze aan te vullen met een komma plus spatie (anders ziet het er zo slordig uit) en de 'optionName' van het object zelf.
 
  ```C
     public LeatherSeats(Vehicle vehicle)
@@ -146,7 +154,7 @@ namespace Decorator.Models
     }
 ```
 
-21. Om de optie geheel volgens specificaties te laten voldoen aan de OptionDecorator moeten we alleen de 'Price()' functie (welke in de Vehicle class als abstract gemarkeerd staat) nog implementeren.
+*22:* Om de optie geheel volgens specificaties te laten voldoen aan de OptionDecorator moeten we alleen de 'Price()' functie (welke in de Vehicle class als abstract gemarkeerd staat) nog implementeren.
     Dit doen we door de Price() functie te 'overriden' en vervolgens een prijs (1200) plus de lokale '_vehicle.Price()' te retourneren.
 ```C
     public override int Price()
@@ -178,11 +186,15 @@ namespace Decorator.Models
 }
 ```  
 
-22. We willen nog een tweetal opties die we voor het gemak kopieren op basis van de 'LeatherSeats' class. Kopieer dus het gehele 'LeaterSeats.cs' tweemaal en noem er eentje 'ParkingSensors.cs' en de ander 'AdaptiveCruiseControl.cs' 
-23. Pas in 'ParkingSensors.cs' de klasse naam aan naar 'ParkingSensors', wijzig eveneens de initiele waarde van 'optionName' in de constructor naar 'Parking Sensors'.
-24. Wijzig in 'ParkingSensors.cs' in de 'Price()' functie de waarde *1200* naar **350.**
-25. Pas in 'AdaptiveCruiseControl.cs' de klasse naam aan naar 'AdaptiveCruiseControl', wijzig eveneens de initiele waarde van 'optionName' in de constructor naar 'Adaptive CruiseControl'.
-26. Wijzig in 'AdaptiveCruiseControl.cs' in de 'Price()' functie de waarde *1200* naar **550.**
+*23:* We willen nog een tweetal opties die we voor het gemak kopieren op basis van de 'LeatherSeats' class. Kopieer dus het gehele 'LeaterSeats.cs' tweemaal en noem er eentje 'ParkingSensors.cs' en de ander 'AdaptiveCruiseControl.cs' 
+
+*24:* Pas in 'ParkingSensors.cs' de klasse naam aan naar 'ParkingSensors', wijzig eveneens de initiele waarde van 'optionName' in de constructor naar 'Parking Sensors'.
+
+*25:* Wijzig in 'ParkingSensors.cs' in de 'Price()' functie de waarde *1200* naar **350.**
+
+*26:* Pas in 'AdaptiveCruiseControl.cs' de klasse naam aan naar 'AdaptiveCruiseControl', wijzig eveneens de initiele waarde van 'optionName' in de constructor naar 'Adaptive CruiseControl'.
+
+*27:* Wijzig in 'AdaptiveCruiseControl.cs' in de 'Price()' functie de waarde *1200* naar **550.**
 
 Resultaat: ParkingSensors.cs
 
@@ -233,9 +245,11 @@ namespace Decorator.Models
 
 ###  Tijd voor het echte werk!
 
-27. Voeg de folder 'HomeViewModels' toe aan de 'Models' folder.
-28. Maak in de 'HomeViewModels' folder de 'IndexViewModel' class aan.
-29. Schrijf de 'IndexViewModel class een public Getter van het type 'Vehicle' en noem deze Car. In verband met het SOLID Open-Closed principle laten we de setter weg. Deze property zetten we alleen in de constructor.
+*28:* Voeg de folder 'HomeViewModels' toe aan de 'Models' folder.
+
+*29:* Maak in de 'HomeViewModels' folder de 'IndexViewModel' class aan.
+
+*30:* Schrijf de 'IndexViewModel class een public Getter van het type 'Vehicle' en noem deze Car. In verband met het SOLID Open-Closed principle laten we de setter weg. Deze property zetten we alleen in de constructor.
 
 ```C
 namespace Decorator.Models.HomeViewModels
@@ -247,7 +261,7 @@ namespace Decorator.Models.HomeViewModels
 }
 ```  
 
-30. Onder de Car property maak je een IList property aan van het type OptionDecorator. Noem deze 'Options'. Ook hier laten we de Setter weg.
+*31:* Onder de Car property maak je een IList property aan van het type OptionDecorator. Noem deze 'Options'. Ook hier laten we de Setter weg.
 
 ```C
 using System.Collections.Generic;
@@ -264,19 +278,21 @@ namespace Decorator.Models.HomeViewModels
 *nb: Om de IList<> interface te kunnen gebruiken in deze klasse dien je een referentie (using) naar 'System.Collections.Generic' te leggen.*
 
 
-31. Later in het proces gaan we dit ViewModel binden aan de View. Om de properties een betere naamgeving op het display te geven voeg je onderstaande **using** toe:
+*32:* Later in het proces gaan we dit ViewModel binden aan de View. Om de properties een betere naamgeving op het display te geven voeg je onderstaande **using** toe:
 ```C
 using System.ComponentModel.DataAnnotations;
 ```
-32. Vervolgens schrijven we boven de Options property een Display **attribute**. Hierin zetten we de property 'Name' met de tekst 'Available options'.
+
+*33:* Vervolgens schrijven we boven de Options property een Display **attribute**. Hierin zetten we de property 'Name' met de tekst 'Available options'.
 
 ```C
 [Display(Name = "Available options")]
 public IList<OptionDecorator> Options { get; }
 ```
 
-33. Omdat we ook willen weten wat de gebruiker geselecteerd heeft schrijven we nu een public property van het type Vehicle welke zowel een 'get' als een 'set' heeft en deze noemen we 'Selected'.
-34. Ook boven deze property schrijven we een attribute van het type Display waarbij we de Name property vullen met de tekst 'Your selection'.  
+*34:* Omdat we ook willen weten wat de gebruiker geselecteerd heeft schrijven we nu een public property van het type Vehicle welke zowel een 'get' als een 'set' heeft en deze noemen we 'Selected'.
+
+*35:* Ook boven deze property schrijven we een attribute van het type Display waarbij we de Name property vullen met de tekst 'Your selection'.  
 
 ```C
 [Display(Name = "Your selection")]
@@ -284,11 +300,15 @@ public Vehicle Selected { get; set; }
 }
 ```
 
-35. We sluiten het IndexViewModel af met een constructor (ctor).
-36. In de constructor zetten we de waarde van de property 'Car' met een 'new AlfaRomeo()';
-37. Schrijf de waarde van 'Car' vervolgens ook naar de 'Selected' property.
-38. Vul nu de 'Options' met een 'new List<OptionDecorator> { }'
-39. In de 'constructor' van de lijst schrijf je achtereenvolgens:
+*36:* We sluiten het IndexViewModel af met een constructor (ctor).
+
+*37:* In de constructor zetten we de waarde van de property 'Car' met een 'new AlfaRomeo()';
+
+*38:* Schrijf de waarde van 'Car' vervolgens ook naar de 'Selected' property.
+
+*39:* Vul nu de 'Options' met een 'new List<OptionDecorator> { }'
+
+*40:* In de 'constructor' van de lijst schrijf je achtereenvolgens:
       - een 'new LeatherSeats' met als waarde voor 'Vehicle' de 'Car' property.
       - 'new ParkingSensors' met als waarde voor 'Vehicle' eveneens 'Car'.
       - en een 'new AdaptiveCruiseControl(Car)'. 
@@ -330,9 +350,11 @@ namespace Decorator.Models.HomeViewModels
 
 Hiermee kunnen we het IndexViewModel.cs bestand sluiten.
 
-40. In de Controllers folder zit het bestand HomeController. Open dit bestand.
-41. Standaard retourneert de Index() functie alleen de View(). Maak een nieuw IndexViewModel aan en retourneer deze in de View(). Hiervoor zal je een referentie moeten leggen naar ~.Models.HomeViewModels.
-42. Schrijf naar de ViewData de text "Car Configurator" in het "Message" object: ViewData['Message'] = "Car Configurator".
+*41:* In de Controllers folder zit het bestand HomeController. Open dit bestand.
+
+*42:* Standaard retourneert de Index() functie alleen de View(). Maak een nieuw IndexViewModel aan en retourneer deze in de View(). Hiervoor zal je een referentie moeten leggen naar ~.Models.HomeViewModels.
+
+*43:* Schrijf naar de ViewData de text "Car Configurator" in het "Message" object: ViewData['Message'] = "Car Configurator".
 
 De HomeController.cs zou er ongeveer zo uit moeten zien waarbij de About(), Contact() en Error() standaard gegenereerd zijn: 
 ```C
@@ -374,14 +396,14 @@ namespace Decorator.Controllers
 }
 ```
 
-43. Alvorens we het nieuwe ViewModel kunnen gebruiken in de View dienen we een referentie te leggen in het _ViewImports document.
+*44:* Alvorens we het nieuwe ViewModel kunnen gebruiken in de View dienen we een referentie te leggen in het _ViewImports document.
 Op hiertoe het '_ViewImports.cshtml' bestand uit de 'Views' folder en voeg onderstaande regel toe:
 
 ```cshtml
 @using Decorator.Models.HomeViewModels
 ```
 
-44. Open het bestand 'Index.cshtml' in de folder 'Views/Home' en verwijder alle opsmuk (alles in de gehele div tag) met uitzondering van het eerst razor statement.
+*45:* Open het bestand 'Index.cshtml' in de folder 'Views/Home' en verwijder alle opsmuk (alles in de gehele div tag) met uitzondering van het eerst razor statement.
 
 ```C
 @{
@@ -389,20 +411,21 @@ Op hiertoe het '_ViewImports.cshtml' bestand uit de 'Views' folder en voeg onder
 }
 ```
 
-45. In de HomeController hebben we in de Index() functie een tekst weggeschreven naar de `ViewData[Message]` property. Deze tekst willen we weergeven op de pagina als een Heading 3.
+*46:* In de HomeController hebben we in de Index() functie een tekst weggeschreven naar de `ViewData[Message]` property. Deze tekst willen we weergeven op de pagina als een Heading 3.
+
 Dit doen we op de pagina als volgt:
 ```html
 <h3>@ViewData["Message"]</h3>
 ```
 
-46. Voeg nu een referentie toe naar het ViewModel* door boven in het document de volgende regel te schrijven:
+*47:* Voeg nu een referentie toe naar het ViewModel* door boven in het document de volgende regel te schrijven:
 ```C
 @model  Decorator.Models.HomeViewModels.IndexViewModel
 ```
 <sup>**Vanwege het feit dat er meerdere 'IndexViewModels' in het project zijn dien je op de webpagina de referentie te leggen inclusief de gehele namespace.*</sup>
 
 
-47. Onder de heading schrijven we een form welke verwijst naar de HomeController en de Index functie als Action. Logischerwijs willen we de waarden van het formulier Posten.
+*48:* Onder de heading schrijven we een form welke verwijst naar de HomeController en de Index functie als Action. Logischerwijs willen we de waarden van het formulier Posten.
 ```html
 <form asp-controller="Home" asp-action="Index" method="post" class="form-horizontal" role="form">
 
@@ -410,7 +433,7 @@ Dit doen we op de pagina als volgt:
 ```
 
 
-48. Binnen de `<form>` tags schrijven we een `<div class="form-group">` en maken we een checklist van de Options die we in het ViewModel hebben gedefinieerd. Van elke 'option' gebruiken we de property *OptionName* als 'value' en als tekstuele weergave. De geselecteerde waarden kennen we toe aan 'SelectedOptions':
+*49:* Binnen de `<form>` tags schrijven we een `<div class="form-group">` en maken we een checklist van de Options die we in het ViewModel hebben gedefinieerd. Van elke 'option' gebruiken we de property *OptionName* als 'value' en als tekstuele weergave. De geselecteerde waarden kennen we toe aan 'SelectedOptions':
 
 <sub> Let op: Onderstaand voorbeeld laat ter illustratie de form tags <u>nogmaals</u> zien. Als je dit hele blok copy+paste binnen de bestaande form tags dan gaat het dus niet werken ;) Pak alleen de tekst binnen de div.</sub>
 ```html
@@ -427,7 +450,7 @@ Dit doen we op de pagina als volgt:
 </form>
 ```
 
-49. Om een formulier te posten hebben we alleen nog een Submit button nodig plaats deze op de pagina in een aparte `<div>` onder de vorige `<div>` maar nog tussen de `<form>` tags.
+*50:* Om een formulier te posten hebben we alleen nog een Submit button nodig plaats deze op de pagina in een aparte `<div>` onder de vorige `<div>` maar nog tussen de `<form>` tags.
    Zoiets als dit zou prima moeten werken:
 ```html
     <div class="form-group">
@@ -435,7 +458,7 @@ Dit doen we op de pagina als volgt:
     </div>
 ``` 
 
-50. Nadat we het formulier gepost hebben, willen we ook de resultaten zien. Schrijf een laatste lege `<div`> binnen de pagina en voeg hier een `<h3>` heading toe die een label bevat voor de 'Selected' property op het ViewModel.
+*51:* Nadat we het formulier gepost hebben, willen we ook de resultaten zien. Schrijf een laatste lege `<div`> binnen de pagina en voeg hier een `<h3>` heading toe die een label bevat voor de 'Selected' property op het ViewModel.
 ```html
     <div>
       <h3><label asp-for="Selected"></label></h3>    
@@ -443,7 +466,7 @@ Dit doen we op de pagina als volgt:
 ```
 
 
-51. Vervolgens kunnen we de waarden van de 'Selected' property als volgt weergeven:
+*52:* Vervolgens kunnen we de waarden van de 'Selected' property als volgt weergeven:
 ```html
     <p><b>Description:</b>    @Model.Selected.GetDescription()</p>
     <p><b>Total Price:</b>    @Model.Selected.Price()</p>
@@ -483,7 +506,7 @@ Het uiteindelijke 'index.cshtml' bestand zou er nu, ongeveer, zo uit moeten zien
 </div>
 ```
 
-52. De laatste stappen dienen we te doen in de HomeController. We hebben namelijk aangegeven dat we een formulier willen posten. Deze logica moeten we nog wel afvangen.
+*53:* De laatste stappen dienen we te doen in de HomeController. We hebben namelijk aangegeven dat we een formulier willen posten. Deze logica moeten we nog wel afvangen.
 Dit doen we door in de HomeController class een nieuwe Index() functie te schrijven, onder de bestaande Index(), die een IndexViewModel property met de naam 'model' ontvangt. Dit model retourneren we vervolgens weer naar de View.
 
 
@@ -494,9 +517,11 @@ public IActionResult Index(IndexViewModel model)
 }
 ```
 
-53. Om aan te geven dat het hier om een POST actie gaat schrijven we het `[HttpPost]` attribuut boven de nieuwe Index functie.
-54. We schrijven wederom de standaard header, "Car Configurator" weg in de `ViewData[Message]`.
-55. De checkboxen die we in het formulier onder de naam 'SelectedOptions' hebben gemaakt lezen we hier uit en schrijven we wel naar het ViewModel in de 'Selected' property.
+*54:* Om aan te geven dat het hier om een POST actie gaat schrijven we het `[HttpPost]` attribuut boven de nieuwe Index functie.
+
+*55:* We schrijven wederom de standaard header, "Car Configurator" weg in de `ViewData[Message]`.
+
+*56:* De checkboxen die we in het formulier onder de naam 'SelectedOptions' hebben gemaakt lezen we hier uit en schrijven we wel naar het ViewModel in de 'Selected' property.
 
 De nieuwe Index functie: 
 
