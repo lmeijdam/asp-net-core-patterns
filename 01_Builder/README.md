@@ -133,9 +133,13 @@ Het bestand 'Burger.cs' is nu gereed en mag je naar wens sluiten.
 
 We maken nu een tweetal typen 'Burgers' aan. Namelijk een Hamburger en een ChickenBurger.
 20. Nog steeds in de 'Models' folder: Maak een nieuwe class aan met de naam 'Hamburger'
+
 21. `Hamburger` implementeert (logischerwijs) de `Burger` class die we eerder hebben aangemaakt.
+
 22. Implementeer de 'overgebleven' properties `Name` en `Price`. (CTRL + . )
+
 23. Zorg er voor dat `Name` de waarde "Hamburger" retourneert in de getter.
+
 24. Voor `Price` mag je `2.80f` retourneren (nee de `f` staat niet voor de ouderwetsche Neerlandische Frank maar voor `float`)
 
 Een voorbeeld van de `Hamburger` class met de sexy nieuwe alternatieve manier van de 'get return' implementaties.
